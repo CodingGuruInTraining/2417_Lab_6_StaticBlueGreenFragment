@@ -11,4 +11,10 @@
         android:layout_height="wrap_content"
         android:text="This is the blue fragment"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send a random number to the green fragment"
+        android:id="@+id/send_rnd_to_green_button"/>
+
 </LinearLayout>
