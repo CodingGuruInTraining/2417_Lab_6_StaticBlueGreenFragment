@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class BlueFragment extends Fragment {
 
-    MainActivity hostingActivity;
+    RandomNumberGeneratedListener randomListener;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class BlueFragment extends Fragment {
             public void onClick(View v) {
                 Random rng = new Random();
                 int rnd = rng.nextInt(100);
-                hostingActivity.sendRandomNumber(rnd);
+                randomListener.sendRandomNumber(rnd);
             }
         });
 
@@ -40,7 +40,14 @@ public class BlueFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        // Save a reference to the hosting activity
-        hostingActivity = (MainActivity) getActivity();
+        if (getActivity() instanceof RandomNumberGeneratedListener) {
+            randomListener = (RandomNumberGeneratedListener) getActivity();
+        } else {
+            throw new RuntimeException(getActivity().getClass().toString() + " should implement RandomNumberGeneratedListener");
+        }
+    }
+
+    interface RandomNumberGeneratedListener {
+        void sendRandomNumber(int rnd);
     }
 }
