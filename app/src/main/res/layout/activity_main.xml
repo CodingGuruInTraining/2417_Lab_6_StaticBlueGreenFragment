@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.hl4350hb.staticbluegreenfragment.MainActivity">
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:name="com.example.hl4350hb.staticbluegreenfragment.BlueFragment"
-        android:id="@+id/blue_fragment"/>
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:name="com.example.hl4350hb.staticbluegreenfragment.GreenFragment"
-        android:id="@+id/green_fragment"/>
 
 </LinearLayout>
